@@ -1,8 +1,10 @@
 // REALLY UNCLEAN CODE BUT IT WORKS
 
+import getInput from "../../util/getInput.ts"
+
 const regex = /\D/g
 const array: Array<number> = []
-const file = (await (Bun.file('./src/days/1/input.txt')).text()).split('\n')
+const file = (await getInput(1)).split('\n')
 file.forEach((line) => {
     let arr = Array.from(line.replace(regex, '')).map(Number)
     console.log(`${arr} ${line}`)

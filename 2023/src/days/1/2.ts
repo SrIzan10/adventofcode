@@ -1,8 +1,10 @@
+import getInput from "../../util/getInput.ts"
+
 // REALLY UNCLEAN CODE BUT IT WORKS
 const regex = /\D/g
 const array: Array<number> = []
 
-let file = await (Bun.file('./src/days/1/input.txt')).text()
+let file = await getInput(1)
 file = file.replaceAll("twone", "21")
 file = file.replaceAll("sevenine", "79")
 file = file.replaceAll("oneight", "18")
