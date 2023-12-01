@@ -11,7 +11,7 @@ program
 		const dirs = await readdir(`./src/days/${day}`, { withFileTypes: true });
 		const file = dirs.find((dir) => dir.name === `${option.part}.ts`);
 		if (file) {
-			logger('success', `Running day ${day}`)
+			logger('success', `Running day ${day} part ${option.part}`)
 			await import(`./days/${day}/${option.part}.ts`);
 		} else {
 			logger('error', `Day ${day} part ${option.part} not found!`);
