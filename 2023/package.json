@@ -1,0 +1,19 @@
+{
+  "name": "aoc-2023",
+  "module": "src/cli.ts",
+  "type": "module",
+  "scripts": {
+    "cli": "bun run src/cli.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "kleur": "^4.1.5",
+    "util-utils": "^1.0.3"
+  }
+}
