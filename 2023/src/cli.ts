@@ -12,7 +12,7 @@ program
 		const file = dirs.find((dir) => dir.name === `${option.part}.ts`);
 		if (file) {
 			logger('success', `Running day ${day}`)
-			await import(`./days/${file.name}/${option.part}`);
+			await import(`./days/${day}/${option.part}.ts`);
 		} else {
 			logger('error', `Day ${day} part ${option.part} not found!`);
 		}
