@@ -1,9 +1,6 @@
 import getInput from "../../util/getInput.ts"
-
-// REALLY UNCLEAN CODE BUT IT WORKS
 const regex = /\D/g
 const array: Array<number> = []
-
 let file = await getInput(1)
 file = file.replaceAll("twone", "21")
 file = file.replaceAll("sevenine", "79")
@@ -23,7 +20,6 @@ file = file.replaceAll("seven", "7")
 file = file.replaceAll("eight", "8")
 file = file.replaceAll("nine", "9")
 const fileSplit = file.split("\n");
-
 fileSplit.forEach((line) => {
     let arr = Array.from(line.replace(regex, '')).map(Number)
     if (arr.length === 0) return

@@ -1,4 +1,4 @@
-import { readdir } from "fs/promises";
+import { readdir, mkdir } from "fs/promises";
 import * as commander from 'commander';
 import logger from "./util/logger.ts";
 
@@ -30,6 +30,15 @@ program
 
 		await Bun.write(`./src/days/${day}/input.txt`, input);
 		logger('success', `Fetched input for day ${day}`);
+	});
+program
+	.command('init <day>')
+	.description('Initializes a new day')
+	.action(async (day) => {
+		await mkdir(`./src/days/${day}`);
+		await Bun.write(`./src/days/${day}/1.ts`, `import getInput from '../../util/getInput.js';\n\n`);
+		await Bun.write(`./src/days/${day}/2.ts`, `import getInput from '../../util/getInput.js';\n\n`);
+		logger('success', `Initialized day ${day}! Happy hacking!`)
 	});
 
 program.parse(process.argv);
