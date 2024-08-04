@@ -2,7 +2,7 @@ import string
 alphabet = list(string.ascii_lowercase)
 uppercaseAlphabet = list(string.ascii_uppercase)
 
-input = open('input.txt', 'r').read().strip().split('\n')
+input = open('input.txt', 'r').read().strip().splitlines()
 
 def part1():
     sum = 0

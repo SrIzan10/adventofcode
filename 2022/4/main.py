@@ -1,4 +1,4 @@
-input = open('input.txt', 'r').read().strip().split('\n')
+input = open('input.txt', 'r').read().strip().splitlines()
 
 one_to_ninetynine = list(range(1,100))
 

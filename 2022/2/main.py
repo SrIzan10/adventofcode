@@ -1,4 +1,4 @@
-input = open('input.txt', 'r').read().split('\n')
+input = open('input.txt', 'r').read().splitlines()
 
 # play
 p = {
