@@ -1,5 +1,3 @@
-import math
-
 input = open('input.txt', 'r').read().strip()
 
 def get_substring(group,subst):
@@ -10,7 +8,7 @@ def has_duplicates(string):
     return len(set(string)) < len(string)
 
 def find_nd_substring(subst):
-    for g in range(math.trunc(len(input))):
+    for g in range(len(input)):
         if not has_duplicates(get_substring(g, subst)):
             return g + subst
 
