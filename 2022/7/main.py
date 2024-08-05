@@ -79,21 +79,16 @@ def part1(data=file_structure):
 p2_size = 100 << 60
 used_size = 70000000 - file_structure['size']
 to_free_up = 30000000 - used_size
-def part2():
+def part2(data=file_structure):
     global p2_size
     
-    def dfs(data):
-        global p2_size
+    if data['type'] == 'dir':
+        if data['size'] > to_free_up:
+            p2_size = min(p2_size, data['size'])
         
-        if data['type'] == 'dir':
-            if data['size'] > to_free_up:
-                p2_size = min(p2_size, data['size'])
-            
-            for item in data['contents']:
-                dfs(item)
-    
-    dfs(file_structure)
-    
+        for item in data['contents']:
+            part2(item)
+
     return p2_size
 
 print('Part1:', part1())
