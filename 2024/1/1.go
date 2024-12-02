@@ -49,6 +49,7 @@ func p2(data []string) int {
 	var totalSimilarity int
 
 	for i := 0; i < len(data); i++ {
+		// day2 - I could've used strings.Fields
 		splitData := strings.Split(data[i], "   ")
 		splitInt, err := sliceAtoi(splitData)
 		if err != nil {
