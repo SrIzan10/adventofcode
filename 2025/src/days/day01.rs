@@ -11,48 +11,57 @@ fn part1(input: &str) -> String {
     let mut solution = 0;
     for imp in input.lines() {
         let c = imp.chars().next().unwrap_or(' ');
-        let nums = &imp[1..].parse().unwrap();
-        match c {
-            'R' => {
-                number += nums;
-                if number == 99 {
-                    println!("holy shitasd f");
-                    solution += 1
-                } else if number < 0 {
-                    number += 99;
-                    println!("summing {}", number)
-                }
+        let nums: i32 = imp[1..].parse().unwrap();
 
-                if number == 0 {
-                    println!("holy shit");
-                    solution += 1
-                }
-                println!("{}", number);
-            },
-            'L' => {
-                number -= nums;
-                if number == 100 {
-                    println!("holy shitasd f");
-                    solution += 1
-                } else if number < 0 {
-                    number += 100;
-                    println!("summing {}", number)
-                }
+        for cur in 0..nums {
+            if c == 'L' {
+                number -= 1;
+            } else {
+                number += 1;
+            }
 
-                if number == 0 || number == 100 {
-                    println!("holy shit");
-                    solution += 1;
-                    number = 0;
-                }
-                println!("{}", number); 
-            },
-            _ => {}
+            // tomfoolery
+            if number < 0 {
+                number = 99;
+            } else if number == 100 {
+                number = 0;
+            }
+
+            // nums - 1 so jank lmao
+            if cur == nums - 1 && number == 0 {
+                solution += 1;
+            }
         }
     }
     return solution.to_string();
 }
 
-fn part2(_input: &str) -> String {
-    // TODO: Solve part 2
-    return "Not implemented".to_string()
+fn part2(input: &str) -> String {
+    let mut number = 50;
+    let mut solution = 0;
+    for imp in input.lines() {
+        let c = imp.chars().next().unwrap_or(' ');
+        let nums: i32 = imp[1..].parse().unwrap();
+
+        for _ in 0..nums {
+            if c == 'L' {
+                number -= 1;
+            } else {
+                number += 1;
+            }
+
+            // tomfoolery
+            if number < 0 {
+                number = 99;
+            } else if number == 100 {
+                number = 0;
+            }
+
+            // did we land
+            if number == 0 {
+                solution += 1;
+            }
+        }
+    }
+    return solution.to_string();
 }
